@@ -14,7 +14,7 @@
 	</parent>
 	<groupId>com.ecatom</groupId>
 	<artifactId>sf-pet-clinic</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
+	<version>0.0.2</version>
 	<name>sf-pet-clinic</name>
 	<description>SF Pet clinic app</description>
 
@@ -40,7 +40,7 @@
 	</build>
 	<scm>
 		<developerConnection>scm:git:https://github.com/joaquinM-code/petClinic.git</developerConnection>
-	  <tag>HEAD</tag>
+	  <tag>sf-pet-clinic-0.0.2</tag>
   </scm>
 
 </project>
