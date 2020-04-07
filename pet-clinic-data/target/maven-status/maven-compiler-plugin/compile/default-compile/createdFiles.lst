@@ -1,0 +1,5 @@
+com\ecatom\sfpetclinic\model\Owner.class
+com\ecatom\sfpetclinic\model\Vet.class
+com\ecatom\sfpetclinic\model\Person.class
+com\ecatom\sfpetclinic\model\Pet.class
+com\ecatom\sfpetclinic\model\PetType.class
