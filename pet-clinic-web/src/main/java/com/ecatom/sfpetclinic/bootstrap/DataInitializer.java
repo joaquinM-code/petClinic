@@ -4,8 +4,6 @@ import com.ecatom.sfpetclinic.model.Owner;
 import com.ecatom.sfpetclinic.model.Vet;
 import com.ecatom.sfpetclinic.services.OwnerService;
 import com.ecatom.sfpetclinic.services.VetService;
-import com.ecatom.sfpetclinic.services.map.OwnerServiceMap;
-import com.ecatom.sfpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +13,12 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
 
-
-    public DataInitializer() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    //Spring IoC Container will implement the methods
+    public DataInitializer(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
 
     //When the app is completely up everything inside this method will run
     @Override

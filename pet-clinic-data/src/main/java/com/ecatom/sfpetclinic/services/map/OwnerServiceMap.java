@@ -2,9 +2,10 @@ package com.ecatom.sfpetclinic.services.map;
 
 import com.ecatom.sfpetclinic.model.Owner;
 import com.ecatom.sfpetclinic.services.OwnerService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
-
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
     @Override
     public Set<Owner> findAll() {
