@@ -1,5 +1,14 @@
+com\ecatom\sfpetclinic\services\OwnerService.class
+com\ecatom\sfpetclinic\model\Person.class
+com\ecatom\sfpetclinic\services\map\OwnerServiceMap.class
+com\ecatom\sfpetclinic\services\CrudService.class
+com\ecatom\sfpetclinic\model\PetType.class
 com\ecatom\sfpetclinic\model\Owner.class
 com\ecatom\sfpetclinic\model\Vet.class
-com\ecatom\sfpetclinic\model\Person.class
+com\ecatom\sfpetclinic\services\PetService.class
+com\ecatom\sfpetclinic\services\VetService.class
+com\ecatom\sfpetclinic\services\map\VetServiceMap.class
 com\ecatom\sfpetclinic\model\Pet.class
-com\ecatom\sfpetclinic\model\PetType.class
+com\ecatom\sfpetclinic\model\BaseEntity.class
+com\ecatom\sfpetclinic\services\map\PetServiceMap.class
+com\ecatom\sfpetclinic\services\map\AbstractMapService.class

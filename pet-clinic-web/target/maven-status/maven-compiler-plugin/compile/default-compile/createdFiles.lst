@@ -1,1 +1,5 @@
+com\ecatom\sfpetclinic\controllers\OwnerController.class
 com\ecatom\sfpetclinic\SfPetClinicApplication.class
+com\ecatom\sfpetclinic\controllers\VetController.class
+com\ecatom\sfpetclinic\controllers\IndexController.class
+com\ecatom\sfpetclinic\bootstrap\DataInitializer.class
