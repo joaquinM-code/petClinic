@@ -1,9 +1,6 @@
 package com.ecatom.sfpetclinic.bootstrap;
 
-import com.ecatom.sfpetclinic.model.Owner;
-import com.ecatom.sfpetclinic.model.Pet;
-import com.ecatom.sfpetclinic.model.PetType;
-import com.ecatom.sfpetclinic.model.Vet;
+import com.ecatom.sfpetclinic.model.*;
 import com.ecatom.sfpetclinic.services.OwnerService;
 import com.ecatom.sfpetclinic.services.PetTypeService;
 import com.ecatom.sfpetclinic.services.VetService;
@@ -32,6 +29,16 @@ public class DataInitializer implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        int count = petTypeService.findAll().size();
+
+        if (count == 0) {
+            loadData();
+        }
+        System.out.println();
+
+    }
+
+    private void loadData() {
         //PetTypes
         //Results are saved in a variable to be reused latter
         PetType dog = new PetType();
@@ -81,21 +88,37 @@ public class DataInitializer implements CommandLineRunner {
 
         System.out.println("Loaded owners.........");
 
+        //Creating specialties
+        Specialty dentistry = new Specialty();
+        dentistry.setDescription("Dentistry");
+
+        Specialty surgery = new Specialty();
+        surgery.setDescription("Surgery");
+
+        Specialty radiology = new Specialty();
+        radiology.setDescription("Radiology");
+
+
         //Vets
         Vet vet1 = new Vet();
         vet1.setFirstName("John");
         vet1.setLastName("Charleston");
+        vet1.getSpecialties().add(radiology);
+        vet1.getSpecialties().add(dentistry);
+        vet1.getSpecialties().forEach(specialty -> {
+            System.out.println(specialty.getDescription());
+        });
 
         vetService.save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Sandra");
         vet2.setLastName("Redstone");
+        vet2.getSpecialties().add(surgery);
+        vet2.getSpecialties().add(radiology);
 
         vetService.save(vet2);
 
         System.out.println("Loaded vets.........");
-
-
     }
 }
