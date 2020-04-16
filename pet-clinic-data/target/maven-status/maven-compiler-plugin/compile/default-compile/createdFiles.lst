@@ -10,5 +10,11 @@ com\ecatom\sfpetclinic\services\VetService.class
 com\ecatom\sfpetclinic\services\map\VetServiceMap.class
 com\ecatom\sfpetclinic\model\Pet.class
 com\ecatom\sfpetclinic\model\BaseEntity.class
+com\ecatom\sfpetclinic\services\map\PetTypeServiceMap.class
+com\ecatom\sfpetclinic\model\Visit.class
+com\ecatom\sfpetclinic\services\PetTypeService.class
 com\ecatom\sfpetclinic\services\map\PetServiceMap.class
+com\ecatom\sfpetclinic\model\Specialty.class
+com\ecatom\sfpetclinic\services\SpecialtyService.class
 com\ecatom\sfpetclinic\services\map\AbstractMapService.class
+com\ecatom\sfpetclinic\services\map\SpecialtyServiceMap.class
