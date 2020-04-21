@@ -1,9 +1,9 @@
 package com.ecatom.sfpetclinic.model;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.MappedSuperclass;
 
-@Entity
+@MappedSuperclass
 public class Person extends BaseEntity {
 
     @Column(name = "first_name")//Specifies the column name on the DB(By default converts camel to snake-case)
