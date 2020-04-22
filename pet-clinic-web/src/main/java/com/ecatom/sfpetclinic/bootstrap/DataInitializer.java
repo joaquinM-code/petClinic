@@ -4,6 +4,7 @@ import com.ecatom.sfpetclinic.model.*;
 import com.ecatom.sfpetclinic.services.OwnerService;
 import com.ecatom.sfpetclinic.services.PetTypeService;
 import com.ecatom.sfpetclinic.services.VetService;
+import com.ecatom.sfpetclinic.services.VisitService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -15,14 +16,16 @@ public class DataInitializer implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final VisitService visitService;
 
     //Spring IoC Container will implement the methods
 
 
-    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.visitService = visitService;
     }
 
     //When the app is completely up everything inside this method will run
@@ -120,5 +123,15 @@ public class DataInitializer implements CommandLineRunner {
         vetService.save(vet2);
 
         System.out.println("Loaded vets.........");
+
+        //Creating visits
+        Visit visit1 = new Visit();
+        visit1.setDate(LocalDate.now());
+        visit1.setPet(lauraPet);
+        visit1.setDescription("Vaccination");
+
+        visitService.save(visit1);
+        System.out.println("Saved visit .............");
+
     }
 }
