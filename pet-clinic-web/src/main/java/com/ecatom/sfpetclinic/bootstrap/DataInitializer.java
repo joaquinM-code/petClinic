@@ -51,6 +51,11 @@ public class DataInitializer implements CommandLineRunner {
         cat.setName("Cat");
         PetType savedCatPetType = petTypeService.save(cat);
 
+        /////////////BUILDER CREATION ////////////////////////
+        //https://dzone.com/articles/design-patterns-the-builder-pattern
+        PetType monkey = new PetType().builder().name("Monkey").build();
+        PetType savedMonkey = petTypeService.save(monkey);
+
         System.out.println("Loaded pet types...........");
 
         //Owners
@@ -88,9 +93,17 @@ public class DataInitializer implements CommandLineRunner {
 
         ownerService.save(owner2);
 
+
+        /////////////BUILDER CREATION ////////////////////////
+        Owner owner3 = new Owner().builder().firstName("Samantha").lastName("Fox").address("396 Invented Street").city("Manchester").phone("65899963").build();
+        Pet samPet = new Pet().builder().name("Monk").petType(savedMonkey).birthDate(LocalDate.now()).owner(owner3).build();
+        owner3.getPets().add(samPet);
+
+        ownerService.save(owner3);
+
         System.out.println("Loaded owners.........");
 
-        //Creating specialties
+        //Creating specialties///////////////////////////////////////////////////////////
         Specialty dentistry = new Specialty();
         dentistry.setDescription("Dentistry");
         specialtyService.save(dentistry);
@@ -120,6 +133,15 @@ public class DataInitializer implements CommandLineRunner {
         vet2.getSpecialties().add(radiology);
 
         vetService.save(vet2);
+
+        /////////////////BUILDER CREATION ///////////////////////////////////
+
+        Vet vet3 = new Vet().builder().firstName("Mark").lastName("Jira").build();
+        vet3.getSpecialties().add(radiology);
+
+        /////////////////////////////////////////////////////////////////////
+
+        vetService.save(vet3);
 
         System.out.println("Loaded vets.........");
 
