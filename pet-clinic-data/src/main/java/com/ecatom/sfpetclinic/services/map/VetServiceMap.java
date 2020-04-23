@@ -3,10 +3,12 @@ package com.ecatom.sfpetclinic.services.map;
 import com.ecatom.sfpetclinic.model.Vet;
 import com.ecatom.sfpetclinic.services.SpecialtyService;
 import com.ecatom.sfpetclinic.services.VetService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
+@Profile({"default" , "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
     private final SpecialtyService specialtyService;
 
@@ -26,21 +28,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet save(Vet object) {
-        if(object != null){
-            if(object.getSpecialties() != null){
-                object.getSpecialties().forEach(specialty -> {
-                    if(specialty.getId() == null){
-                        specialtyService.save(specialty);
-                    }
-                });
-                return super.save(object);
-            }else{
-                throw new RuntimeException("The specialties can not be null");
-            }
-        }else{
-            return null;
-        }
-
+        return super.save(object);
     }
 
     @Override

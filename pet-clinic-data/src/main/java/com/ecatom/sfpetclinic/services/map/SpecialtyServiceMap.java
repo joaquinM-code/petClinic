@@ -2,10 +2,12 @@ package com.ecatom.sfpetclinic.services.map;
 
 import com.ecatom.sfpetclinic.model.Specialty;
 import com.ecatom.sfpetclinic.services.SpecialtyService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 @Service
+@Profile({"default" , "map"})
 public class SpecialtyServiceMap extends AbstractMapService<Specialty , Long> implements SpecialtyService {
     @Override
     public Set<Specialty> findAll() {

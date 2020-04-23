@@ -1,10 +1,7 @@
 package com.ecatom.sfpetclinic.bootstrap;
 
 import com.ecatom.sfpetclinic.model.*;
-import com.ecatom.sfpetclinic.services.OwnerService;
-import com.ecatom.sfpetclinic.services.PetTypeService;
-import com.ecatom.sfpetclinic.services.VetService;
-import com.ecatom.sfpetclinic.services.VisitService;
+import com.ecatom.sfpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,15 +14,17 @@ public class DataInitializer implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final VisitService visitService;
+    private final SpecialtyService specialtyService;
 
     //Spring IoC Container will implement the methods
 
 
-    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, VisitService visitService) {
+    public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, VisitService visitService, SpecialtyService specialtyService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.visitService = visitService;
+        this.specialtyService = specialtyService;
     }
 
     //When the app is completely up everything inside this method will run
@@ -94,12 +93,15 @@ public class DataInitializer implements CommandLineRunner {
         //Creating specialties
         Specialty dentistry = new Specialty();
         dentistry.setDescription("Dentistry");
+        specialtyService.save(dentistry);
 
         Specialty surgery = new Specialty();
         surgery.setDescription("Surgery");
+        specialtyService.save(surgery);
 
         Specialty radiology = new Specialty();
         radiology.setDescription("Radiology");
+        specialtyService.save(radiology);
 
 
         //Vets
@@ -108,9 +110,6 @@ public class DataInitializer implements CommandLineRunner {
         vet1.setLastName("Charleston");
         vet1.getSpecialties().add(radiology);
         vet1.getSpecialties().add(dentistry);
-        vet1.getSpecialties().forEach(specialty -> {
-            System.out.println(specialty.getDescription());
-        });
 
         vetService.save(vet1);
 
