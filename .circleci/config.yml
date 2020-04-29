@@ -6,6 +6,6 @@ orbs:
 workflows:
   maven_test:
     jobs:
-      run: mvn integration-test
+      run: mvn install
 docker:
   image: circleci/openjdk:latest
