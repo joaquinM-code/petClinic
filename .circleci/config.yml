@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/openjdk:13
+      - image: circleci/openjdk:13-oracle
 
     # Specify service dependencies here if necessary
     # CircleCI maintains a library of pre-built images
